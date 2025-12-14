@@ -22,33 +22,33 @@ function computerMove() {
 }
 
 function playGame(humanMove, computerMove) {
-    let result = undefined;
+    let humanScore = 0;
+    let computerScore = 0;
     if (humanMove === computerMove) {
-        result = `You chose ${humanMove}. Computer chose ${computerMove}. Tie.`;
-        console.log(result)
+        console.log(`You chose ${humanMove}. Computer chose ${computerMove}. Tie. User Score: ${humanScore}, Computer Score: ${computerScore}`);
     } else if (humanMove === 'rock') {
         if (computerMove === 'paper') {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
-            console.log(result);
+            computerScore++;
+            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You lose. User Score: ${humanScore}, Computer Score: ${computerScore}`);
         } else {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. You win.`;
-            console.log(result);
+            humanScore++;
+            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You win. User Score: ${humanScore}, Computer Score: ${computerScore}`);
         }
     } else if (humanMove === 'paper') {
         if (computerMove === 'rock') {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. You win.`;
-            console.log(result);
+            humanScore++;
+            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You win. User Score: ${humanScore}, Computer Score: ${computerScore}`);
         } else {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
-            console.log(result);
+            computerScore++;
+            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You lose. User Score: ${humanScore}, Computer Score: ${computerScore}`);
     }
     } else if (humanMove === 'scissors') {
         if (computerMove === 'rock') {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
-            console.log(result);
+            computerScore++;
+            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You lose. User Score: ${humanScore}, Computer Score: ${computerScore}`);
         } else if (computerMove === 'paper') {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. You win.`;
-            console.log(result);
+            humanScore++;
+            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You win. User Score: ${humanScore}, Computer Score: ${computerScore}`);
         } 
     }
 }
