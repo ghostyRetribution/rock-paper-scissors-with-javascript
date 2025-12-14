@@ -17,7 +17,7 @@ function computerMove() {
     if (randomNumber === 0) 
         computerMove = 'rock'
     else if (randomNumber === 1) 
-        computerMove = 'paper'
+        computerMove = 'paper' 
     else 
         computerMove = 'scissors'
     return computerMove;
@@ -26,11 +26,11 @@ function computerMove() {
 
 function playGame(humanMove, computerMove) {
     let result = undefined;
-    if (humanMove === 'rock') {
-        if (computerMove === 'rock') {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. Tie.`;
-            console.log(result);
-        } else if (computerMove === 'paper') {
+    if (humanMove === computerMove) {
+        result = `You chose ${humanMove}. Computer chose ${computerMove}. Tie.`;
+        console.log(result)
+    } else if (humanMove === 'rock') {
+        if (computerMove === 'paper') {
             result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
             console.log(result);
         } else {
@@ -41,13 +41,10 @@ function playGame(humanMove, computerMove) {
         if (computerMove === 'rock') {
             result = `You chose ${humanMove}. Computer chose ${computerMove}. You win.`;
             console.log(result);
-        } else if (computerMove === 'paper') {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. Tie.`;
-            console.log(result);
         } else {
             result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
             console.log(result);
-        }
+    }
     } else if (humanMove === 'scissors') {
         if (computerMove === 'rock') {
             result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
@@ -55,10 +52,7 @@ function playGame(humanMove, computerMove) {
         } else if (computerMove === 'paper') {
             result = `You chose ${humanMove}. Computer chose ${computerMove}. You win.`;
             console.log(result);
-        } else {
-            result = `You chose ${humanMove}. Computer chose ${computerMove}. Tie.`;
-            console.log(result);
-        }
+        } 
     }
 }
 
