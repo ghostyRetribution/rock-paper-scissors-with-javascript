@@ -13,16 +13,13 @@ if (humanMove !== 'rock' && humanMove !== 'paper' && humanMove !== 'scissors') {
 } 
 
 function computerMove() {
-    let computerMove = undefined;
     if (randomNumber === 0) 
-        computerMove = 'rock'
+        return 'rock';
     else if (randomNumber === 1) 
-        computerMove = 'paper' 
+        return 'paper'; 
     else 
-        computerMove = 'scissors'
-    return computerMove;
+        return 'scissors';
 }
-
 
 function playGame(humanMove, computerMove) {
     let result = undefined;
