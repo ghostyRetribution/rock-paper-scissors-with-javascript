@@ -6,13 +6,13 @@
 // score will be added to the score variable of the player who wins
 // by comparing the moves of the human and the computer.
 
-const randomNumber = Math.floor(Math.random()* 3);
+const randomNumber = Math.floor(Math.random() * 3);
 const humanMove = prompt('Please enter a move: ').toLowerCase();
-if (humanMove !== 'rock' && humanMove !== 'paper' && humanMove !== 'scissor') {
+if (humanMove !== 'rock' && humanMove !== 'paper' && humanMove !== 'scissors') {
     alert('Please enter a valid move')
 } 
 
-function computerMoveLogic() {
+function computerMove() {
     let computerMove = undefined;
     if (randomNumber === 0) 
         computerMove = 'rock'
@@ -23,3 +23,43 @@ function computerMoveLogic() {
     return computerMove;
 }
 
+
+function playGame(humanMove, computerMove) {
+    let result = undefined;
+    if (humanMove === 'rock') {
+        if (computerMove === 'rock') {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. Tie.`;
+            console.log(result);
+        } else if (computerMove === 'paper') {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
+            console.log(result);
+        } else {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. You win.`;
+            console.log(result);
+        }
+    } else if (humanMove === 'paper') {
+        if (computerMove === 'rock') {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. You win.`;
+            console.log(result);
+        } else if (computerMove === 'paper') {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. Tie.`;
+            console.log(result);
+        } else {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
+            console.log(result);
+        }
+    } else if (humanMove === 'scissors') {
+        if (computerMove === 'rock') {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. You lose.`;
+            console.log(result);
+        } else if (computerMove === 'paper') {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. You win.`;
+            console.log(result);
+        } else {
+            result = `You chose ${humanMove}. Computer chose ${computerMove}. Tie.`;
+            console.log(result);
+        }
+    }
+}
+
+playGame(humanMove, computerMove());
