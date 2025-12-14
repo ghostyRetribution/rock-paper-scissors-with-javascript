@@ -1,10 +1,11 @@
 // rock-paper-scissors game between a human and computer.
 // and there are two score variables, one for each of them.
-// for the computer to pick a move, a random number between 0 and 2 is chosen.
-// 0 is for rock, 1 is for paper, and 2 is for scissors.
+// for the computer to pick a move, a random number between 0 and 2 is chosen. 0 is for rock, 1 is for paper, and 2 is for scissors.
 // the player move is taken using prompt().
-// score will be added to the score variable of the player who wins
-// by comparing the moves of the human and the computer.
+// score will be added to their respective variables.
+
+let humanScore = 0;
+let computerScore = 0;
 
 while(true) {
     const randomNumber = Math.floor(Math.random() * 3);
@@ -21,8 +22,7 @@ while(true) {
         else 
             return 'scissors';
     }
-
-    function playGame(humanMove, computerMove, humanScore, computerScore) {
+    function playGame(humanMove, computerMove) {
         if (humanMove === computerMove) {
             console.log(`You chose ${humanMove}. Computer chose ${computerMove}. Tie. User Score: ${humanScore}, Computer Score: ${computerScore}`);
         } else if (humanMove === 'rock') {
@@ -51,6 +51,5 @@ while(true) {
             } 
         }
     }
-
-    playGame(humanMove, computerMove(), 0, 0);
+    playGame(humanMove, computerMove());
 }
