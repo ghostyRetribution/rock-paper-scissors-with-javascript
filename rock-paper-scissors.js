@@ -17,6 +17,8 @@ function computerMove() {
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
+const container = document.querySelector('#container');
+container.classList.add('container');
 
 rockBtn.addEventListener('click', () => {
     playGame('rock', computerMove());
@@ -28,32 +30,40 @@ scissorsBtn.addEventListener('click', () => {
     playGame('scissors', computerMove());
 });
 
+function displayScore() {
+    container.textContent = `Human Score: ${humanScore}
+        \n Computer Score: ${computerScore}`;
+}
+displayScore()
+
 function playGame(humanMove, computerMove) {
     if (humanMove === computerMove) {
-        console.log(`You chose ${humanMove}. Computer chose ${computerMove}. Tie. User Score: ${humanScore}, Computer Score: ${computerScore}`);
+        displayScore()
     } else if (humanMove === 'rock') {
         if (computerMove === 'paper') {
             computerScore++;
-            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You lose. User Score: ${humanScore}, Computer Score: ${computerScore}`);
+            displayScore()
         } else {
             humanScore++;
-            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You win. User Score: ${humanScore}, Computer Score: ${computerScore}`);
+            displayScore()
         }
     } else if (humanMove === 'paper') {
         if (computerMove === 'rock') {
             humanScore++;
-            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You win. User Score: ${humanScore}, Computer Score: ${computerScore}`);
+            displayScore()
         } else {
             computerScore++;
-            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You lose. User Score: ${humanScore}, Computer Score: ${computerScore}`);
+            displayScore()
     }
     } else if (humanMove === 'scissors') {
         if (computerMove === 'rock') {
             computerScore++;
-            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You lose. User Score: ${humanScore}, Computer Score: ${computerScore}`);
+            displayScore()
         } else if (computerMove === 'paper') {
             humanScore++;
-            console.log(`You chose ${humanMove}. Computer chose ${computerMove}. You win. User Score: ${humanScore}, Computer Score: ${computerScore}`);
+            displayScore()
         } 
     }
+    if (humanScore === 5) alert('You won!');
+    if (computerScore === 5) alert('Computer won!')
 }
